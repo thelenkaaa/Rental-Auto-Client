@@ -1,10 +1,5 @@
-import React from 'react'
 import "./Car.css"
-import Car1 from "../main/img/image1.jpeg"
-import { useParams } from 'react-router-dom';
-
-const carMark = 'Ferrari A'
-  
+import Car1 from "../main/img/image1.jpeg"  
 
 const Car = (props: any) => {
   return (
