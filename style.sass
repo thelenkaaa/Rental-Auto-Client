@@ -1,0 +1,225 @@
+$basic-font-family: 'Montserrat', sans-serif
+$primary-color: #5072A7
+$available-color: #5F8575
+
+.input
+    border-radius: 60px
+
+.button
+  background-color: $primary-color
+  color: white
+  border-radius: 15px
+  width:  100%
+  height: 40px
+  border: $available-color
+  border-style: solid
+  border-width: 1px
+
+.sign-up-button
+   @extend .button
+   width:50%
+
+body 
+    font-family: $basic-font-family
+
+.header-container
+    font-weight: 500
+    font-size: 24px
+
+    .logo-wrapper
+        padding:1.25rem
+        background-color: white
+        border:none
+
+    .log-in-button
+        padding: 1.5rem
+        border: none
+        background-color: white
+    
+.car-container
+    margin: 6rem
+
+    .car-image-wrapper 
+        position: relative
+        height: 100%
+
+        img
+            border-radius: 8%
+            width:100%
+            height:100%
+            object-fit: cover
+            filter: brightness(70%)
+        
+footer
+    margin-top: 3rem
+    background-color: $primary-color
+    display: flex
+    justify-content: center
+
+.car-name
+    position: absolute
+    color: white
+    font-size: 150%
+    top: 10%
+    left: 8%
+
+    @media(max-width: 576px) 
+    font-size: 100%
+  
+
+  @media(min-width: 1200px) 
+    font-size: 300%
+  
+
+.car-price
+    position: absolute
+    color: white
+    font-size: 150%
+    bottom: 5px
+    right: 25px
+
+    @media(max-width: 576px) 
+    font-size: 100%
+
+.car-status-button
+    border-radius: 15px
+    height: 40px
+    background-color: white
+    border: $primary-color
+    color: $primary-color
+    border-style: solid
+    border-width: 1px
+    width: 25%
+
+.car-status-button:hover
+    background-color: $primary-color
+    color: white
+
+
+// друга сторінка
+
+.car-image-wrapper-order
+
+    img
+        border-radius: 10%
+        width:100%
+        object-fit: cover
+        filter: brightness(70%)
+
+.car-status-button-order
+    border-radius: 15px
+    height: 40px
+    background-color: $available-color
+    border: $available-color
+    color: white
+    border-style: solid
+    border-width: 1px
+    width: 100%
+
+
+label 
+  font-size: 16px
+
+
+.custom-button 
+  background-color: $primary-color
+  color: white
+  border-radius: 15px
+  width:  100%
+  height: 40px
+  border: $available-color
+  border-style: solid
+  border-width: 1px
+
+
+.order-form input[type="text"],
+.order-form input[type="email"],
+.order-form input[type="tel"],
+.order-form textarea 
+  border-radius: 10px
+
+.form-control:hover 
+  border-color: $primary-color
+
+
+.user-wrapper
+    border-radius: 40px
+    background-color: white
+    border: grey
+    border-style: solid
+    border-width: 1px
+    font-size:20px
+    padding-left: 3rem
+
+
+.user-info-row 
+  display: flex
+  justify-content: space-between
+
+
+
+
+
+.edit-user-button
+  background-color:$primary-color
+  color: black
+  border-radius: 15px
+  width:  100%
+  height: 40px
+  border: $primary-color
+  border-style: solid
+  border-width: 1px
+
+.delete-user-button
+  background-color: #9b5151
+  color: black
+  border-radius: 15px
+  width:  100%
+  height: 40px
+  border: #9b5151
+  border-style: solid
+  border-width: 1px
+
+.users-car-img
+    border-radius: 8%
+
+.background-wrapper
+    background-color: $primary-color
+
+
+//authorization page
+
+.sign-up-form
+    border: black
+    padding:1rem
+
+.log-in-form   
+    border: black
+    padding:1rem
+
+.log-in-button
+    border-radius: 15px
+    height: 40px
+    background-color: white
+    border: $primary-color
+    color: $primary-color
+    border-style: solid
+    border-width: 1px
+    width: 100%
+
+.log-in-button:hover
+    background-color: $primary-color
+    color: white
+
+
+
+.sign-up-button:hover
+    background-color: white
+    color: $primary-color
+
+
+
+.user-button
+    padding-right: 2rem
+    background-color: white
+    border-style: none

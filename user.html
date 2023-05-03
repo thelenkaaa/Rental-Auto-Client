@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="scripts/user.js"></script>
+
+</head>
+<body>
+
+    <header class="header-container border-bottom">
+        <div class="container">
+        <div class="row row-cols-2">
+          <div class="col d-flex justify-content-start">
+            <button class="logo-wrapper my-3" onclick="navigateToMain()">
+             Rental Company YFV
+            </button>
+            <script>
+            function navigateToMain() {
+                window.location.href = "main.html";
+            }
+            </script>
+          </div>
+
+          <div class="col d-flex justify-content-end">
+
+
+            <button class="user-button d-flex justify-content-end align-items-center" onclick="navigateToUser()">
+                <img src="log_in_icon.png" width="45" height="45" alt="Log in"/>
+            </button>
+            
+            <script>
+            function navigateToUser() {
+                window.location.href = "user.html";
+            }
+            </script>
+            
+      </div>
+    </div>
+    </div>
+  </header>
+
+
+  <div class="container">
+    <h2 class="text-center my-4">Your Page</h2>
+
+    <div class="col-md-8 user-wrapper mx-auto py-4 shadow-lg p-3 mb-5 bg-white">
+        <div class="d-flex justify-content-center align-items-center">            
+            <img src="img/user_icon.png" width="200" height="190" />
+        </div>
+        <div class="user-info-wrapper mx-2">
+            <div class="user-info-row my-2 mx-1">
+                <div class="user-info-label d-flex justify-content-start" ><strong>Username:</strong></div>
+                <div class="user-info-value d-flex justify-content-end" id="user-username"></div>
+            </div>
+            <div class="user-info-row my-2 mx-1">
+                <div class="user-info-label"><strong>Name:</strong></div>
+                <div class="user-info-value" id="user-name"></div>
+            </div>
+            <div class="user-info-row my-2 mx-1">
+                <div class="user-info-label"><strong>Surname:</strong></div>
+                <div class="user-info-value" id="user-surname"></div>
+            </div>
+            <div class="user-info-row my-2 mx-1">
+                <div class="user-info-label"><strong>Email:</strong></div>
+                <div class="user-info-value" id="user-email"></div>
+            </div>
+            <div class="user-info-row my-2 mx-1">
+                <div class="user-info-label"><strong>Phone:</strong></div>
+                <div class="user-info-value" id="user-phone"></div>
+            </div>
+            <div class="user-info-row my-2 mx-1">
+                <div class="user-info-label"><strong>Driver License:</strong></div>
+                <div class="user-info-value" id="user-driver-license"></div>
+            </div>
+        </div>
+        <button class="edit-user-button my-2 mx-1">edit profile</button>       
+        <button class="delete-user-button my-2">delete profile</button>              
+    </div>
+
+
+    </div>
+  </div>
+
+
+  <footer class="bg text-white py-4">
+    <div class="footer-container">
+      <div class="row text-center">
+        <div class="col-md-6 col-lg-6">
+          <h5 class="mb-3">About Us</h5>
+          <p>We are a rental company that specializes in high-end vehicles for every occasion.</p>
+        </div>
+        <div class="col-md-6 col-lg-6">
+          <h5 class="mb-3">Contact Us</h5>
+          <p>Anytown, USA 12345<br> Phone: (123) 456-7890<br> Email: info@rentalcompany.com</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p class="text-center mt-2 mb-0">© 2023 Rental Company. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+
+
+<!--
+        <div class="col-md-4">
+            <div class="users-cars-wrapper">
+                <h5 class="text-center my-5">List of cars that u have rented earlier:</h5>
+
+                <div class="row row-cols-2 d-flex ju">
+                    <div class="col users-one-car-wrapper my-2">
+                        <p class="text-center">Ferrari Numero</p>
+                        <img src="img/image3.webp" class="users-car-img d-flex justify-content-center" width="150px" height="100px"/>
+                    </div>
+
+                    <div class="col users-one-car-wrapper my-2">
+                        <p class="text-center">Ferrari Numero</p>
+                        <img src="img/image4.jpeg" class="users-car-img d-flex justify-content-center" width="150px" height="100px"/>
+                    </div>
+                </div>
+
+
+            </div>
+        </div> -->
