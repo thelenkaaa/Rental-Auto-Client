@@ -2,9 +2,13 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-
+import { fetch_data } from "../../utils/api";
+import { fetch_data_with_error } from "../../utils/error";
 
 const SignUp = () => {
+  const server_url = 'http://localhost:63341';
+
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -15,17 +19,31 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
-      console.log("Username: ", username);
-      console.log("Email: ", email);
-      console.log("Phone: ", phone);
-      console.log("Name: ", name);
-      console.log("Surname: ", surname);
-      console.log("Drive: ", driverLicence);
-      console.log("Password: ", password);
-      navigate('/main');
-    };
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    try{
+      const response = await fetch_data_with_error('/user/user', 'POST', {
+      username: username,
+      password: password,
+      first_name: name,
+      last_name: surname,
+      email: email,
+      phone: phone,
+      drive_license: driverLicence
+      }, false);
+      if (response.status != 200) {
+        alert(response.statusText)
+      }
+      else{
+        alert("Successful authorization!")
+        navigate("/login")
+      }
+    } catch (error: any) {
+        alert(error.message)
+  }
+    
+  };
   
     return (
         <>

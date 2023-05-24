@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import './Login.css'
+import { fetch_data } from "../../utils/api";
+import { fetch_data_with_error } from "../../utils/error";
 
+const server_url = 'http://localhost:63341';
 
 const LogIn = () => {
     const [username, setUsername] = useState("");
@@ -11,11 +14,30 @@ const LogIn = () => {
 
     const navigate = useNavigate();
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        console.log("Username: ", username);
-        console.log("Password: ", password);
-        navigate('/main');
+        
+        try{
+            const response = await fetch_data_with_error(
+                "/user/login",
+                "POST",
+                {
+                  username: username,
+                  password: password,
+                },
+                false
+              );
+            console.log(response)
+            if (response.status != 200) {
+              alert(response.status + ': ' + response.statusText)
+            }
+            else{
+                localStorage.setItem("access_token", response.data.AccessToken);
+                navigate("/main")
+            }
+          } catch (error: any) {
+              alert(error.message)
+        }
       };
     
 

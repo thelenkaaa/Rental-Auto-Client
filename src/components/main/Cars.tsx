@@ -1,115 +1,80 @@
-import React, { useState } from 'react'
+import { useState, useEffect } from 'react'
 import "./Cars.css"
-import Car1 from "./img/image1.jpeg"
-import Car2 from "./img/image2.jpeg"
-import Car3 from "./img/image3.webp"
-import Car4 from "./img/image4.jpeg"
-import Car5 from "./img/image5.jpeg"
-import Car6 from "./img/image6.jpeg"
-import Car7 from "./img/image7.jpeg"
-import Car8 from "./img/image8.jpeg"
-import Car9 from "./img/image9.webp"
-
+import './CarsButtons.css';
 import CarInstance from './CarInstance'
+import { fetch_data } from "../../utils/api";
+import { useNavigate } from 'react-router-dom';
+
+// import Car8 from "./img/image8.jpeg"
+// import Car8 from "/Users/lenka/Documents/Web/Web-technologies/src/components/main/img/image1.jpeg"
+// import Car9 from "./img/image9.webp"
+
+interface Car {
+    car_id: number;
+    mark: string;
+    category: string;
+    price: number;
+    transmission: string;
+    status: string;
+    image_path: any;
+  }
 
 export const Cars = () => {
-    const [cars] = useState([
-        {
-            strMark : "Ferrari A",
-            strCategory : "Smth",
-            strPrice : "2000",
-            strTransmission : "Automatic",
-            strStatus : "Available",
-            strImagePath : Car1
-        },
-        {
-            strMark : "Ferrari B",
-            strCategory : "Smth",
-            strPrice : "1000",
-            strTransmission : "Automatic",
-            strStatus : "Available",
-            strImagePath : Car2
-        },
-        {
-            strMark : "Ferrari C",
-            strCategory : "Smth",
-            strPrice : "1500",
-            strTransmission : "Automatic",
-            strStatus : "Available",
-            strImagePath : Car3
-        },
-        {
-            strMark : "Ferrari A",
-            strCategory : "Smth",
-            strPrice : "2000",
-            strTransmission : "Automatic",
-            strStatus : "Available",
-            strImagePath : Car4
-        },
-        {
-            strMark : "Ferrari A",
-            strCategory : "Smth",
-            strPrice : "2000",
-            strTransmission : "Automatic",
-            strStatus : "Available",
-            strImagePath : Car5
-        },
-        {
-            strMark : "Ferrari A",
-            strCategory : "Smth",
-            strPrice : "2000",
-            strTransmission : "Automatic",
-            strStatus : "Available",
-            strImagePath : Car6
-        },
-        {
-            strMark : "Ferrari B",
-            strCategory : "Smth",
-            strPrice : "2000",
-            strTransmission : "Automatic",
-            strStatus : "Available",
-            strImagePath : Car7
-        },
-        {
-            strMark : "Ferrari C",
-            strCategory : "Smth",
-            strPrice : "2000",
-            strTransmission : "Automatic",
-            strStatus : "Available",
-            strImagePath : Car8
-        },
-        {
-            strMark : "Ferrari A",
-            strCategory : "Smth",
-            strPrice : "2000",
-            strTransmission : "Automatic",
-            strStatus : "Available",
-            strImagePath : Car9
-        }
-    ]);
+    const [cars, setCars] = useState<Car[]>([]);
 
-    // const history = useHistory();
-    // const [selectedCar, setSelectedCar] = useState(null);
-  
-    // const handleCarClick = (car) => {
-    //   setSelectedCar(car);
-    //   history.push(`/car/${car.strMark}`);
-    // };
+    const navigate = useNavigate();
+
+    useEffect(() => {
+      getCars();
+    }, []);
+
+    const getCars = async () => {
+        const data = await fetch_data("/car/getAll","GET");
+        console.log(data)
+        setCars(data);
+      };
+
+    const getCarsByStatusAvail = async () => {
+        const data = await fetch_data("/car/getByStatusAvail","GET");
+        clearCars();
+        setCars(data);    
+    };
+    
+    const getCarsByStatusUnavail = async () => {
+        const data = await fetch_data("/car/getByStatusUnavail","GET");
+        clearCars();
+        setCars(data);   
+    };
+    
+    const clearCars = async () => {
+        setCars([]);
+    };
 
     return (
-        <div className="car-container my-4">
-          <div className="row row-cols-3 gy-4 car-list" id="car-list">
-  
-            {cars.map((car, index) => (
-                <CarInstance
-                    key={index}
-                    strMark={car.strMark}
-                    strPrice={car.strPrice}
-                    strImagePath={car.strImagePath}
-                />
-            ))}
-  
-          </div>
-        </div>
+        <>
+            <div className="my-4 d-flex justify-content-center">
+                <button className="car-status-button mx-2" onClick={() => getCarsByStatusAvail()}>
+                    available
+                </button>
+                <button className="car-status-button mx-2" onClick={() => getCarsByStatusUnavail()}>
+                    unavailable
+                </button>
+            </div>
+
+            <div className="car-container my-4">
+                <div className="row row-cols-3 gy-4 car-list" id="car-list">
+                    {cars.map((car) => (
+                        <CarInstance
+                            key={car.car_id}
+                            strMark={car.mark}
+                            strPrice={car.price.toString()}
+                            strImagePath={"https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Ferrari_Daytona_SP3_front_side_at_CF_2022.jpg/1200px-Ferrari_Daytona_SP3_front_side_at_CF_2022.jpg"}
+                            carId={car.car_id}
+            
+                        />
+                    ))}
+                </div>
+            </div>
+        </>
     );
 }

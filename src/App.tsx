@@ -6,11 +6,13 @@ import CarPage from "./components/order/CarPage";
 import LogIn from "./components/auth/Login";
 import SignUp from "./components/auth/Signup";
 import Parent from "./Parent";
+import { UpdateUser } from './components/user/EditUser';
 
 export default function App() {
   const childRoutes = [
     { path: "/main", element: <Main /> },
     { path: "/user", element: <User /> },
+    { path: "/edit", element: <UpdateUser /> },
     { path: "/car", element: <CarPage /> },
   ];
   return (
