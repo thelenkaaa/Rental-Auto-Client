@@ -3,8 +3,8 @@ import Main from "./components/main/Main";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import User from "./components/user/User";
 import CarPage from "./components/order/CarPage";
-import LogIn from "./components/auth/Login";
-import SignUp from "./components/auth/Signup";
+import {LogIn} from "./components/auth/Login";
+import {SignUp} from './components/auth/Signup';
 import Parent from "./Parent";
 import { UpdateUser } from './components/user/EditUser';
 

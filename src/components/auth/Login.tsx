@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom';
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import './Login.css'
-import { fetch_data } from "../../utils/api";
 import { fetch_data_with_error } from "../../utils/error";
 
 const server_url = 'http://localhost:63341';
 
-const LogIn = () => {
+export const LogIn = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -47,7 +46,9 @@ const LogIn = () => {
         <div className="row align-items-center">
             <div className="col-md-6 col-sm-12 my-5">
                 <div className="log-in-form text-center">
-                    <h3 className="text-center">Log in here</h3>
+                    <h3 className="text-center">
+                        <p>Log in here</p>
+                    </h3>
                     <form className="log-in-form" onSubmit={handleSubmit}>
                         <div className="form-group my-2">
                             <label htmlFor="username">Username:</label>
@@ -88,4 +89,3 @@ const LogIn = () => {
     );
 };
 
-export default LogIn;

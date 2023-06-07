@@ -5,9 +5,6 @@ import CarInstance from './CarInstance'
 import { fetch_data } from "../../utils/api";
 import { useNavigate } from 'react-router-dom';
 
-// import Car8 from "./img/image8.jpeg"
-// import Car8 from "/Users/lenka/Documents/Web/Web-technologies/src/components/main/img/image1.jpeg"
-// import Car9 from "./img/image9.webp"
 
 interface Car {
     car_id: number;
@@ -22,7 +19,6 @@ interface Car {
 export const Cars = () => {
     const [cars, setCars] = useState<Car[]>([]);
 
-    const navigate = useNavigate();
 
     useEffect(() => {
       getCars();
@@ -30,7 +26,6 @@ export const Cars = () => {
 
     const getCars = async () => {
         const data = await fetch_data("/car/getAll","GET");
-        console.log(data)
         setCars(data);
       };
 

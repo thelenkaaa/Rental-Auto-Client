@@ -1,13 +1,11 @@
 import "./UserInfo.css";
 import UserIcon from "../main/img/user_icon.png";
-import { fetch_data } from "../../utils/api";
 import { useNavigate } from "react-router-dom";
 import { useState} from "react";
 import { fetch_data_with_error } from "../../utils/error";
 
 
 export const UpdateUser = (props: any) => {
-    console.log(props)
     const navigate = useNavigate();
     const [username, setUsername] = useState(props.Username || "");
     const [name, setName] = useState(props.Name || "");
@@ -47,7 +45,7 @@ export const UpdateUser = (props: any) => {
         e.preventDefault();
 
         if (isNaN(Number(phone))){
-            alert('400: "phone: [Not a valid integer.]}')
+            window.alert('400: "phone: [Not a valid integer.]}')
             return
         }
 
@@ -60,17 +58,14 @@ export const UpdateUser = (props: any) => {
                 phone: phone,
                 drive_license: driverLicence,
               });
-            console.log(response)
             if (response.status != 200) {
-            alert(response.status + ': ' + response.statusText)
+            window.alert(response.status + ': ' + response.statusText)
             }
             else{
-                console.log('Successsss')
                 navigate("/user")
             }
         } catch (error: any) {
-            console.log(error)
-            alert(error.code+ error.message)
+            window.alert(error.code+ error.message)
         }
         };
 
@@ -153,6 +148,7 @@ export const UpdateUser = (props: any) => {
                   value={phone}
                   onChange={handlePhoneChange}
                   className="form-control"
+                  data-testid="phone-input"
                 />
               </div>
             </div>

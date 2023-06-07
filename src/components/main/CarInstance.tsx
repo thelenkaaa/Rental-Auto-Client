@@ -1,5 +1,5 @@
 import "./CarInstance.css"
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Car1 from "./img/image1.jpeg"
 import Car2 from "./img/image2.jpeg"
 import Car3 from "./img/image3.webp"
@@ -29,12 +29,11 @@ export const carImageMap: { [key: number]: string } = {
   9: Car9
 };
 
-
 const CarInstance = (props:Props) => {
   const navigate = useNavigate();
 
   return (
-    <div className="btn car-image-wrapper col-md-4 col-sm-6 col-12" 
+    <div className="btn car-image-wrapper col-md-4 col-sm-6 col-12" data-testid="car-instance"
     onClick={() => navigate(`/car?car_id=${props.carId}`)}>
       <img src={carImageMap[props.carId]} 
       alt={props.strMark} />
@@ -45,7 +44,3 @@ const CarInstance = (props:Props) => {
 }
 
 export default CarInstance;
-
-
-
-

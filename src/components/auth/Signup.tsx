@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { fetch_data } from "../../utils/api";
 import { fetch_data_with_error } from "../../utils/error";
 
-const SignUp = () => {
+export function SignUp(){
   const server_url = 'http://localhost:63341';
 
 
@@ -61,6 +61,7 @@ const SignUp = () => {
                     id="email" 
                     placeholder="Enter your email" 
                     value={email}
+                    data-testid="email-input"
                     onChange={(event) => setEmail(event.target.value)}
                     required/>
                   </div>
@@ -71,6 +72,7 @@ const SignUp = () => {
                     id="username" 
                     placeholder="Enter your username" 
                     value={username}
+                    data-testid="username-input"
                     onChange={(event) => setUsername(event.target.value)}
                     required/>
                   </div>
@@ -81,6 +83,7 @@ const SignUp = () => {
                     id="name" 
                     placeholder="Enter your name" 
                     value={name}
+                    data-testid="name-input"
                     onChange={(event) => setName(event.target.value)}
                     required/>
                   </div>
@@ -88,7 +91,8 @@ const SignUp = () => {
                     <label htmlFor="email">Surname:</label>
                     <input type="surname" 
                     className="form-control" 
-                    id="surname" 
+                    id="surname"
+                    data-testid="surname-input" 
                     placeholder="Enter your surname" 
                     value={surname}
                     onChange={(event) => setSurname(event.target.value)}
@@ -101,6 +105,7 @@ const SignUp = () => {
                     id="phone" 
                     placeholder="Enter your phone" 
                     value={phone}
+                    data-testid="phone-input"
                     onChange={(event) => setPhone(event.target.value)}
                     required/>
                   </div>
@@ -111,6 +116,7 @@ const SignUp = () => {
                     id="driverLicence" 
                     placeholder="Enter your licence" 
                     value={driverLicence}
+                    data-testid="driver-licence-input"
                     onChange={(event) => setDriverLicence(event.target.value)}                   
                     required/>
                   </div>
@@ -121,10 +127,11 @@ const SignUp = () => {
                     id="password" 
                     placeholder="Enter your password" 
                     value={password}
+                    data-testid="password-input"
                     onChange={(event) => setPassword(event.target.value)}
                     required/>
                   </div>
-                  <button type="submit" className="log-in-button my-3">Sign up</button>
+                  <button type="submit" className="log-in-button my-3" data-testid="submit-button">Sign up</button>
 
                 </form>
               </div>
@@ -142,4 +149,4 @@ const SignUp = () => {
     );
 };
 
-export default SignUp;
+// export default SignUp;
