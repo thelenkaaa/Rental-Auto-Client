@@ -1,6 +1,5 @@
-import Order from './Order'
+import OrderInfo from './OrderInfo';
 import CarInfo from './CarInfo'
-import { useEffect, useState } from 'react';
 
 const CarPage = () => {
 
@@ -35,7 +34,7 @@ const CarPage = () => {
         <div className="car-container my-4">
             <div className="row row-cols-2 gy-4">
                 <CarInfo />
-                <Order />
+                <OrderInfo />
             </div>
         </div>
     </div>
