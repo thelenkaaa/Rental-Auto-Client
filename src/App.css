@@ -1,0 +1,102 @@
+
+.button, .sign-up-button {
+  background-color: #5072A7;
+  color: white;
+  border-radius: 15px;
+  width: 100%;
+  height: 40px;
+  border: white;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.sign-up-button {
+  width: 100%;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+
+
+
+
+
+
+
+label {
+  font-size: 16px;
+}
+
+.custom-button {
+  background-color: #5072A7;
+  color: white;
+  border-radius: 15px;
+  width: 100%;
+  height: 40px;
+  border: #5F8575;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.order-form input[type=text],
+.order-form input[type=email],
+.order-form input[type=tel],
+.order-form textarea {
+  border-radius: 10px;
+}
+
+.form-control:hover {
+  border-color: #5072A7;
+}
+
+
+
+.users-car-img {
+  border-radius: 8%;
+}
+
+.background-wrapper {
+  background-color: #5072A7;
+  height: 100vh;
+}
+
+.display-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.sign-up-form {
+  border: black;
+  padding: 3rem;
+}
+
+.log-in-form {
+  border: black;
+  padding: 3rem;
+}
+
+.log-in-button {
+  border-radius: 15px;
+  height: 40px;
+  background-color: white;
+  border: #5072A7;
+  color: #5072A7;
+  border-style: solid;
+  border-width: 1px;
+  width: 100%;
+}
+
+.log-in-button:hover {
+  background-color: #5072A7;
+  color: white;
+}
+
+.sign-up-button:hover {
+  background-color: white;
+  color: #5072A7;
+}
+
